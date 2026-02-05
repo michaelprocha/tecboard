@@ -22,6 +22,20 @@
   --spacing-md: 1.5rem;
   --spacing-lg: 2.5rem;
   --spacing-xg: 5rem;
+
+  --text-*: initial;
+  --text-body-xs: 0.625rem;
+  --text-body-s: 0.812rem;
+  --text-body-base: 1rem;
+  --text-body-md: 1.250rem;
+  --text-mix: 1.562rem;
+  --text-title-xs: 1.938rem;
+  --text-title-s: 2.438rem;
+  --text-title-base: 3.062rem;
+  --text-title-md: 3.812rem;
+  --text-title-l: 4.750rem;
+
+
 }
 
 @layer base {

@@ -1,6 +1,7 @@
 import AddIcon from './assets/icons/add_circle.svg?react'
 import Button from "./components/Button"
 import Input from './components/InputText'
+import Select from './components/Select'
 import Tag from './components/Tag'
 import Text from './components/Text'
 
@@ -12,6 +13,7 @@ function App() {
     <Button size={'md'} icon={AddIcon} variant={'primary'}>Adicionar evento</Button>
     <Input id={"1"} name={'nome'} placeholder={'teste'}/>
     <Tag>FRONT-END</Tag>
+    <Select options={['carro', 'moto', 'barco']}/>
     </>
   )
 }
