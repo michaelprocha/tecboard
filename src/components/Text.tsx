@@ -1,13 +1,23 @@
-import { createElement } from "react"
+import type { ElementType, ComponentPropsWithoutRef, ReactNode } from "react";
 
-interface TextProps {
-    as?: keyof React.JSX.IntrinsicElements;
-    className?: string;
-    children?: React.ReactNode;
+interface TextBaseProps<T extends ElementType> {
+  as?: T;
+  children?: ReactNode;
 }
 
-function Text({as = 'span', className, children, ...props}: TextProps) {
-    return createElement(as, {className, ...props}, children)
-}
+type TextProps<T extends ElementType> = TextBaseProps<T> & 
+  Omit<ComponentPropsWithoutRef<T>, keyof TextBaseProps<T>>;
 
-export default Text
+export default function Text<T extends ElementType = "span">({
+  as,
+  children,
+  className,
+  ...props
+}: TextProps<T>) {
+  const Component = as || "span";
+  return (
+    <Component className={className} {...props}>
+      {children}
+    </Component>
+  );
+}

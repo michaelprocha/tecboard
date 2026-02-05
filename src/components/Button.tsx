@@ -1,10 +1,13 @@
-import type React from "react";
-import Text from "./Text";
+import type { ComponentProps, ReactNode} from "react";
 import Icon from "./Icon";
 import { cva, type VariantProps } from "class-variance-authority";
+import { cn } from "../utils/cn";
 
 const buttonVariant = cva(
-	["flex", "items-center", "justify-center", "rounded-md", "px-4", "py-2", "gap-2.5", "text-base", "font-semibold", 'min-w-fit'],
+	[
+		"flex", "items-center", "justify-center", "rounded-md", "px-4", 
+		"py-2", "gap-2.5", "text-base", "font-semibold", 'min-w-fit', 'cursor-pointer'
+	],
 	{
 		variants: {
 			variant: {
@@ -25,18 +28,18 @@ const buttonVariant = cva(
 	},
 );
 
-interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement>, VariantProps<typeof buttonVariant>{
-  children: React.ReactNode;
-  icon?: React.FC<React.ComponentProps<"svg">>;
+interface ButtonProps extends Omit<ComponentProps<'button'>, "size">, VariantProps<typeof buttonVariant>{
+  children: ReactNode;
+  icon?: ComponentProps<typeof Icon>["svg"];
   className?: string;
 }
 
 function Button({children, icon, size, variant, className, ...props}: ButtonProps) {
 	return (
-		<Text as={"button"} className={buttonVariant({variant, size, className})} {...props}>
-      		{!icon ? "" : (<Icon svg={icon} variant={variant === 'primary' ? 'primary' : 'secondary'} className={'w-6 h-7.5'}/>)}
+		<button className={cn(buttonVariant({variant, size, className}))} {...props}>
+      		{icon && (<Icon svg={icon} variant={variant === 'primary' ? 'primary' : 'secondary'} className={'w-6 h-7.5'}/>)}
 			{children}
-		</Text>
+		</button>
 	);
 }
 
