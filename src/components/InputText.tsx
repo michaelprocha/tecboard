@@ -11,10 +11,14 @@ const inputVariant = cva(
         variants: {
             variant: {
                 primary: ['border-medium-gray']
+            },
+            size:{
+                md: ['w-82']
             }
         },
         defaultVariants: {
-            variant: "primary"
+            variant: "primary",
+            size: 'md'
         }
     }
 )
@@ -24,10 +28,10 @@ interface inputProps extends Omit<ComponentProps<'input'>, "size">, VariantProps
     id: string;
 }
 
-function Input({ name, id, className, placeholder, ...props}: inputProps) {
+function InputText({ name, id, size, className, placeholder, ...props}: inputProps) {
   return (
-    <input type='text' name={name} id={id} placeholder={placeholder} className={cn(inputVariant({className}))} {...props}/>
+    <input type='text' name={name} id={id} placeholder={placeholder} className={cn(inputVariant({size, className}))} {...props}/>
   )
 }
 
-export default Input
+export default InputText

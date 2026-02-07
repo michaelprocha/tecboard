@@ -3,7 +3,7 @@ import Text from './Text'
 import { cva, type VariantProps } from 'class-variance-authority'
 import { cn } from '../utils/cn'
 
-const tagVariant = cva(['bg-medium-gray', 'text-white', 'p-2', 'rounded-sm', 'w-fit', 'text-[0.625rem]'])
+const tagVariant = cva(['bg-medium-gray', 'text-white', 'p-2', 'rounded-sm', 'w-fit', 'text-[0.625rem]', 'uppercase'])
 
 interface TagProps extends ComponentProps<'h6'>, VariantProps<typeof tagVariant>{}
 
