@@ -10,7 +10,9 @@ const dateVariant = cva(
 		"border-medium-gray",
 		"rounded-md",
         "text-medium-gray",
-        "outline-none"
+        "outline-none",
+		'active:border-green',
+		'focus:border-white'
 	],
 	{
 		variants: {

@@ -26,8 +26,9 @@ function Select({ options, size, className }: SelectProps) {
 	const [selected, setSelected] = useState("Selecione uma opção");
 
 	return (
-		<div className={cn(selectProps({size, className}))}>
-			{isOpen || (<button
+		<div className={cn(selectProps({size}), className)}>
+			{!isOpen && (<button
+				type="button"
 				onClick={() => setIsOpen(!isOpen)}
 				className="outline-none flex items-center justify-between w-full px-4 py-2 border 
                 border-medium-gray rounded-md text-medium-gray text-body-base 
@@ -39,7 +40,7 @@ function Select({ options, size, className }: SelectProps) {
 
 			{isOpen && (
 				<ul className="absolute z-10 w-full px-4 border border-medium-gray 
-                rounded-md">
+                rounded-md bg-graphite">
                     <li className="text-medium-gray border-b border-medium-gray py-2 mb-2.5 flex 
                     justify-between items-center cursor-pointer" onClick={() => setIsOpen(false)}>
                         Selecione uma opção
