@@ -9,6 +9,7 @@ import Text from "./components/Text";
 import imgCard from "./assets/images/Imagem1.png";
 import Form from "./components/Form";
 import Header from "./components/Header";
+import Footer from "./components/Footer";
 
 function App() {
 	return (
@@ -24,6 +25,7 @@ function App() {
 			<Card img={imgCard} tag={"Front-end"} date={"1997-01-14"} title="Mulheres no Front">
 				Valorizando e impulsionando a participação feminina no desenvolvimento front-end.
 			</Card>
+			<Footer/>
 			<Form />
 			<Header/>
 		</>
