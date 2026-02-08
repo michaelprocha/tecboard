@@ -1,6 +1,7 @@
 import { cva, type VariantProps } from "class-variance-authority";
 import type { ComponentProps } from "react";
 import logoMarcaImg from "../assets/images/LogoMarca.svg";
+import logoImg from "../assets/images/Logo.svg";
 import { cn } from "../utils/cn";
 
 const variantHeader = cva(["w-full", "flex", "items-center", "justify-center"], {
@@ -27,7 +28,7 @@ function Header({variant, size, className, ...props }: HeaderProps) {
 		<header className={cn(variantHeader({variant, size}), className)} {...props}>
 			<div>
 				<h1>
-					<img src={logoMarcaImg} alt="Logo Marca" />
+					<img src={logoImg} srcSet={`${logoImg} 768w, ${logoMarcaImg}`} sizes="(max-width: 768px) 768px" alt="Logo Marca" />
 				</h1>
 			</div>
 		</header>
