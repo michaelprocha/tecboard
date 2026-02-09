@@ -35,6 +35,9 @@
   --text-title-md: 3.812rem;
   --text-title-l: 4.750rem;
 
+  --background-image-heroS: url('./assets/images/Hero image_S.svg'), linear-gradient(to bottom, #17D9B1, #06151A);
+  --background-image-heroM: url('./assets/images/Hero image_Md.svg'), linear-gradient(to bottom, #17D9B1, #06151A);
+  --background-image-heroL: url('./assets/images/Hero image_L.svg'), linear-gradient(to bottom, #17D9B1, #06151A);
 
 }
 
