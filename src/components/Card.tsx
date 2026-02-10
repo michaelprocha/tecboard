@@ -13,14 +13,14 @@ interface CardProps {
 
 function Card({img, tag, date, title, children, className}: CardProps) {
   return (
-    <div className={`bg-graphite max-w-70.5 ${className}`}>
+    <div className={`bg-graphite max-w-70.5 h-full flex flex-col ${className}`}>
         <img src={img} alt="" />
-        <div className='px-4 py-6'>
+        <div className='px-4 py-6 h-full flex flex-col'>
             <Tag className={'mb-2'}>{tag}</Tag>
-            <div className='flex flex-col gap-2'>
+            <div className='flex flex-col gap-2 h-full'>
                 <Text as='time' dateTime={date} className='text-body-s text-white'>{date.split('-').reverse().join('/')}</Text>
                 <Text as='h3' className='text-mix text-white'>{title}</Text>
-                <Text as='p' className='text-body-base text-white'>{children}</Text>
+                <Text as='p' className='text-body-base text-white mt-auto'>{children}</Text>
             </div>
         </div>
     </div>

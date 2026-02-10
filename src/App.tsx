@@ -1,35 +1,47 @@
-import AddIcon from "./assets/icons/add_circle.svg?react";
-import Button from "./components/Button";
-import Card from "./components/Card";
-import InputDate from "./components/InputDate";
-import InputText from "./components/InputText";
-import Select from "./components/Select";
-import Tag from "./components/Tag";
-import Text from "./components/Text";
-import imgCard from "./assets/images/Imagem1.png";
 import Form from "./components/Form";
 import Header from "./components/Header";
-import Footer from "./components/Footer";
 import Hero from "./components/Hero";
+import { useCard } from "./hooks/useCard";
+import Text from "./components/Text";
+import Card from "./components/Card";
+import Footer from "./components/Footer";
 
 function App() {
+	const { cards } = useCard();
+
 	return (
 		<>
-			<Text as="h1">Texto</Text>
-			<Button size={"md"} icon={AddIcon} variant={"primary"}>
-				Adicionar evento
-			</Button>
-			<InputText id={"1"} name={"nome"} placeholder={"teste"} />
-			<Tag>FRONT-END</Tag>
-			<Select options={["carro", "moto", "barco"]} />
-			<InputDate id={"2"} name={"nome2"} />
-			<Card img={imgCard} tag={"Front-end"} date={"1997-01-14"} title="Mulheres no Front">
-				Valorizando e impulsionando a participação feminina no desenvolvimento front-end.
-			</Card>
+			<Header />
+			<main>
+				<Hero>Seu hub de eventos de tecnologia</Hero>
+				<section className="flex justify-center items-center py-15 bg-dark-green">
+					<Form />
+				</section>
+				<section className="bg-dark-green flex items-center justify-center py-15">
+					<ol className="max-w-300 flex flex-col gap-16 sm:pl-8">
+						{cards.map((arrCard, arrICard) => (
+							<li key={`category-${arrICard}-${arrCard[0].tag}`}>
+								<Text as="h3" className="text-white text-body-md uppercase pb-8">
+									{arrCard[0].tag}
+								</Text>
+								<ol className="flex flex-col gap-6 flex-wrap sm:flex-row">
+									{arrCard.map((card, iCard) => {
+										const { tag, date, title, text, img } = card;
+										return (
+											<li key={`card-${iCard}-${tag}`}>
+												<Card img={img} tag={tag} date={date} title={title}>
+													{text}
+												</Card>
+											</li>
+										);
+									})}
+								</ol>
+							</li>
+						))}
+					</ol>
+				</section>
+			</main>
 			<Footer/>
-			<Form />
-			<Header/>
-			<Hero/>
 		</>
 	);
 }

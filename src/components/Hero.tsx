@@ -1,4 +1,4 @@
-import type { ComponentProps } from "react";
+import type { ComponentProps, ReactNode } from "react";
 import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "../utils/cn";
 import Text from "./Text";
@@ -20,9 +20,10 @@ const variantHero = cva([
 
 interface HeroProps extends Omit<ComponentProps<"section">, 'size'>, VariantProps<typeof variantHero> {
 	className?: string;
+	children: ReactNode;
 }
 
-function Hero({ className, ...props }: HeroProps) {
+function Hero({ className, children, ...props }: HeroProps) {
 	return (
 		<section className={cn(variantHero({}), className)} {...props}>
 			<Text
@@ -30,7 +31,7 @@ function Hero({ className, ...props }: HeroProps) {
 				className="text-white mb-6 lg:mb-20 text-mix md:text-title-s lg:text-title-base 
                 lg:max-w-148 text-center md:max-w-118 max-w-78"
 			>
-				Seu hub de eventos de tecnologia
+				{children}
 			</Text>
 		</section>
 	);
