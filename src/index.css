@@ -39,6 +39,7 @@
   --background-image-heroM: url('./assets/images/Hero image_Md.svg'), linear-gradient(to bottom, #17D9B1, #06151A);
   --background-image-heroL: url('./assets/images/Hero image_L.svg'), linear-gradient(to bottom, #17D9B1, #06151A);
 
+  --breakpoint-xs: 31rem
 }
 
 @layer base {

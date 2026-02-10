@@ -9,13 +9,15 @@ const variantHero = cva([
 	"items-end",
 	"justify-center",
 	`bg-heroS`,
-	`md:bg-heroM`,
+	`xs:bg-heroM`,
 	`lg:bg-heroL`,
 	"h-100",
 	"md:h-120",
-	"lg:h-150",
+	"lg:min-h-150",
 	"bg-no-repeat",
 	"bg-bottom",
+	"bg-cover",
+	"lg:contain"
 ]);
 
 interface HeroProps extends Omit<ComponentProps<"section">, 'size'>, VariantProps<typeof variantHero> {
