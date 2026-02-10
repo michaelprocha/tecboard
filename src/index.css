@@ -1,0 +1,78 @@
+@import "tailwindcss";
+
+@theme {
+  --color-*: initial;
+  --color-default-bg: #06151A;
+  --color-graphite: #212121;
+  --color-medium-gray: #33353F;
+  --color-white: #FFFFFF;
+  --color-green: #17D9B1;
+  --color-dark-green: #06151A;
+
+  --radius-*: initial;
+  --radius-sm: 0.25rem;
+  --radius-md: 0.50rem;
+
+  --font-*: initial;
+  --font-orbitron: "Orbitron", sans-serif;
+  --font-sans: "'Work Sans'", sans-serif;
+
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 1.5rem;
+  --spacing-lg: 2.5rem;
+  --spacing-xg: 5rem;
+
+  --text-*: initial;
+  --text-body-xs: 0.625rem;
+  --text-body-s: 0.812rem;
+  --text-body-base: 1rem;
+  --text-body-md: 1.250rem;
+  --text-mix: 1.562rem;
+  --text-title-xs: 1.938rem;
+  --text-title-s: 2.438rem;
+  --text-title-base: 3.062rem;
+  --text-title-md: 3.812rem;
+  --text-title-l: 4.750rem;
+
+  --background-image-heroS: url('./assets/images/Hero image_S.svg'), linear-gradient(to bottom, #17D9B1, #06151A);
+  --background-image-heroM: url('./assets/images/Hero image_Md.svg'), linear-gradient(to bottom, #17D9B1, #06151A);
+  --background-image-heroL: url('./assets/images/Hero image_L.svg'), linear-gradient(to bottom, #17D9B1, #06151A);
+
+  --breakpoint-xs: 31rem
+}
+
+@layer base {
+  html, body {
+    @apply font-sans;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-orbitron;
+    line-height: 125%;
+  }
+
+  h1{
+    font-size: 4.750rem;
+  }
+
+  h2{
+    font-size: 3.812rem;
+  }
+
+  h3{
+    font-size: 3.062rem;
+  }
+
+  h4{
+    font-size: 2.438rem;
+  }
+
+  h5{
+    font-size: 1.938rem;
+  }
+
+  h6{
+    font-size: 1.562rem;
+  }
+}
